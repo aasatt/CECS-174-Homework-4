@@ -29,7 +29,7 @@ public class UnitConversion {
 //		}
 
 		//ask user for value to convert and pass it to getResult();
-		
+		//display result 
 	}
 }
 
