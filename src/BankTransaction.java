@@ -1,4 +1,7 @@
-//test
-public class BankTransaction {
+import java.util.Scanner;
 
+public class BankTransaction {
+	public static void main(String[] args){
+		
+	}
 }
