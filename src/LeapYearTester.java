@@ -30,11 +30,13 @@ class LeapYear {
 		
 		//Still need to find the right algorithm for this. 
 		//I'm getting logical errors.
-		if (year%4 == 0 && year%100 != 0) {
+		if(year%4 == 0 && year%100 != 0){
 			System.out.print("This year is a leap year");
-		} else if (year%400 == 0){
+		}
+		else if(year%400 ==0 && year%100 != 0){
 			System.out.print("This year is a leap year!");
-		} else {
+		}
+		else{
 			System.out.print("This year is not a leap year");
 		}
 	}
