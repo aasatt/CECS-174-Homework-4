@@ -1,11 +1,5 @@
 import java.util.Scanner;
-<<<<<<< HEAD
 
-public class BankTransaction {
-	public static void main(String[] args){
-		
-	}
-=======
 
 //Aaron Satterfield
 //013572648
@@ -54,6 +48,5 @@ class ATMControl {
 			}
 		}	
 	}
-	
->>>>>>> origin/master
+
 }
