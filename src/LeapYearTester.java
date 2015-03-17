@@ -28,8 +28,7 @@ class LeapYear {
 	public void isLeapYear(int leapYear){
 		year = leapYear;
 		
-		//Still need to find the right algorithm for this. 
-		//I'm getting logical errors.
+		//check it now...
 		if (year%4 == 0 && year%100 != 0) {
 			System.out.print("This year is a leap year");
 		} else if (year%400 == 0){
