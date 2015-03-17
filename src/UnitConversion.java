@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
  * 
  * I feel like this is sorta a hacky solution to this problem if u can think of a better way please let me know and do it
@@ -31,31 +33,39 @@
 public class UnitConversion {
 	public static void main (String[] args) {
 		//ask user covert from? (fl.oz, gal, oz, lb, in, ft, mi)
-		//set string value - nextLine();
-		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Covert from? Enter: fl.oz, gal, oz, lb, in, ft or mi");
+		Converter convert = new  Converter(input.nextLine());
 		//now i would init the Converter class with the first value
 		// call secondValueValid from Converter class like this
 		
-//		int reult = -1;
-//		while (result == -1) {
-//			result = getResult();//this will keep running until valid second value
-//		}
-
+		double result = -1;
+		while (result == -1) {
+			result = convert.getResult();//this will keep running until valid second value
+			if (result == -1) {
+				System.out.println("Invalid Units \n");
+			}
+		}
+		System.out.print(result+" "+convert.getTo());
 		//display result to user
 	}
 }
 
 
 class Converter{
-	//declare private vars here
-
-	public Converter (String from) {
-		//set private var to the one passed in
+	private String from = "";
+	private String to = "";
+	public Converter (String fromMain) {
+		from = fromMain;
 	}
 	public double getResult() {
 		//double conversion.... this will be the multiplier you are using to actually do the conversion
 		//ask user covert to? (ml, l, g, kg, mm, cm, m, km).
-		//set string value - nextLine();
+		System.out.println("Covert to? Enter: ml, l, g, kg, mm, cm, m or km");
+		Scanner input = new Scanner(System.in);
+		to = input.nextLine();
+		double value = 0;
+		double conversion = 0;
 		//use if else statments to find a matching combo
 		
 		/*
@@ -83,52 +93,127 @@ class Converter{
 						// 20 = mi -> km
 		*/
 		
-		
-		
-//		if (from == "fl.oz") {
-//			if (to == "ml") {
-//				conversion = 29.5735;
-//				//ask user for the value to convert
-//				return (value*conversion);
-//			} else if (to == "l") {
-//				conversion = .0295735;
-//				//ask user for the value to convert
-//				return (value*conversion);
-//			}
-//			
-//			
-//			
-//		} else if (from == "gal") {
-//			if (to == "ml") {
-//				conversion = 3785.41;
-//				/ask user for the value to convert
-//				return (value*conversion);
-//			} else if (to == "l") {
-//				conversion = 3.78541;
-//				//ask user for the value to convert
-//				return (value*conversion);
-//			}
-//			
-//			
-//			
-//		} else if (from == "oz") {
-//			if (to == "g") {
-//				conversion = 28.3495;
-//				//ask user for the value to convert
-//				return (value*conversion);
-//			} else if (to == "kg") {
-//				conversion = 0.0283495;
-//				//ask user for the value to convert
-//				return (value*conversion);
-//			} 
-		
-		
-		//..............and so on
-		
-		
+		if (from.equalsIgnoreCase("fl.oz")) {
+			System.out.println("here");
+			if (to.equalsIgnoreCase("ml")) {
+				conversion = 29.5735;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("l")) {
+				conversion = .0295735;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();
+				return (value*conversion);
+			}
+		} else if (from.equalsIgnoreCase("gal")) {
+			if (to.equalsIgnoreCase("ml")) {
+				conversion = 3785.41;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("l")) {
+				conversion = 3.78541;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			}	
+		} else if (from.equalsIgnoreCase("oz")) {
+			if (to.equalsIgnoreCase("g")) {
+				conversion = 28.3495;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("kg")) {
+				conversion = 0.0283495;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} 
+		} else if (from.equalsIgnoreCase("lb")) {
+			if (to.equalsIgnoreCase("g")) {
+				conversion = 453.592;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("kg")) {
+				conversion = 0.453592;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} 
+		} else if (from.equalsIgnoreCase("in")) {
+			if (to.equalsIgnoreCase("mm")) {
+				conversion = 25.4;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("cm")) {
+				conversion = 2.54;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("m")) {
+				conversion = .0254;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("km")) {
+				conversion = .0000245;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			}
+		} else if (from.equalsIgnoreCase("ft")) {
+			if (to.equalsIgnoreCase("mm")) {
+				conversion = 304.8;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("cm")) {
+				conversion = 30.48;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("m")) {
+				conversion = 0.3048;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("km")) {
+				conversion = .0003048;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			}
+		} else if (from.equalsIgnoreCase("mi")) {
+			if (to.equalsIgnoreCase("mm")) {
+				conversion = 160934;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("cm")) {
+				conversion = 160934;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("m")) {
+				conversion = 1609.34;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			} else if (to.equalsIgnoreCase("km")) {
+				conversion = 1.60934;
+				System.out.println("Enter value to convert: ");
+				value = input.nextDouble();				
+				return (value*conversion);
+			}
+		}
 		//if the combo never is valid it will eventually return -1 which will restart the while loop in main 
-		
-		return -1; //return the result
+		return -1;
+	}
+	public String getTo(){
+		return to; //returns proper units for output
 	}
 
 }
