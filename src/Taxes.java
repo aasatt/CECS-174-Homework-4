@@ -1,30 +1,56 @@
 import java.util.Scanner;
 
-//Computing taxes according to the table
-
-
 public class Taxes {
 	public static void main (String[] args) {
-		//init Scanner here - Scanner input = new Scanner(System.in);
-		//ask user for marital status - something like enter 0 if single and 2 
-		//set value of status - int
-		//ask user for total income 
-		//set value of income - double 
-		//close scanner - input.closer();
-		//init TaxTable class and pass the values of marital status and income - table
-		//create new double tax and call the getTax method to set it equal to the tax owed - double tax = table.getTax();
-		//print result to user 
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter 0 if single, or Enter 1 if married: ");
+		int status = input.nextInt();
+		
+		System.out.print("What is your total income: ");
+		double income = input.nextDouble();
+		
+		TaxTable first = new TaxTable();
+		System.out.print("Your tax comes up to be $");
+		System.out.println(first.getTax(status, income));
 	}
 }
 
+
+
 class TaxTable{
-	//declare private vars here
-	public TaxTable (int status, double income) {
-		//set private vars to the ones passed in
+	
+	/**Initiated calculatedTax*/
+	private double calculatedTax;
+	
+	public TaxTable(){
+		calculatedTax = 0;	
 	}
-	public double getTax() {
-		double calculatedTax = 0; // init var 
+	
+	public double getTax(int status, double income) {
 		
-		return calculatedTax; //return the result
+		/**If single*/
+		if(status == 0 && income >= 32000){
+			calculatedTax = income*.25 + 4400;
+		}
+		else if(status == 0 && income >= 8000){
+			calculatedTax = income*.15 + 800;
+		}
+		else if(status == 0 && income > 0){
+			calculatedTax = income*.10;
+		}
+		
+		
+		/**If married*/
+		if(status == 1 && income >= 64000){
+			calculatedTax = income*.25 + 8800;
+		}
+		else if(status == 1 && income >= 16000){
+			calculatedTax = income*.15 + 1600;
+		}
+		else if(status == 1 && income > 0){
+			calculatedTax = income*.10;
+		}
+		return calculatedTax; 
 	}
 }
